@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">HappySadApp</string>
+
+    <string name="error_unexpected_error">Something went wrong. Please try again later</string>
+    <string name="error_bad_connection_try_again">Bad connectivfity, please try again</string>
+    <string name="error_remote_server_failed">Application server could not respond. Please try later</string>
+    <string name="error_paring">Parsing error</string>
+    <string name="error_internet_not_connected">Please check your internet connection or try again later.</string>
+    <string name="text_retry">RETRY</string>
+    <string name="text_ok">OK</string>
+
+    <string name="text_how_you_feeling">How you feeling Today...</string>
+
+ </resources>

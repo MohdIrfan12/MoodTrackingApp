@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:background="@color/color_000000_00_alpha">
+
+    <!--    <ProgressBar-->
+    <!--        android:id="@+id/progress_bar"-->
+    <!--        android:layout_width="@dimen/dimen_60dp"-->
+    <!--        android:layout_height="@dimen/dimen_60dp"-->
+    <!--        android:indeterminateTint="@color/color_de0f44" />-->
+
+    <ImageView
+        android:layout_width="@dimen/dimen_100dp"
+        android:layout_height="@dimen/dimen_100dp"
+        android:id="@+id/ivExpression"
+          />
+
+</RelativeLayout>
