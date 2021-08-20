@@ -6,23 +6,23 @@ pipeline {
         stage('Detect build type') {
           steps {
             sh '''steps {
-    script {
-      if (env.BRANCH_NAME == \'develop\' || env.CHANGE_TARGET == \'develop\') {
-        env.BUILD_TYPE = \'debug\'
-      } else if (env.BRANCH_NAME == \'master\' || env.CHANGE_TARGET == \'master\') {
-        env.BUILD_TYPE = \'release\'
-      }
-    }
-  }'''
+Â  Â  script {
+Â  Â  Â  if (env.BRANCH_NAME == \'develop\' || env.CHANGE_TARGET == \'develop\') {
+Â  Â  Â  Â  env.BUILD_TYPE = \'debug\'
+Â  Â  Â  } else if (env.BRANCH_NAME == \'master\' || env.CHANGE_TARGET == \'master\') {
+Â  Â  Â  Â  env.BUILD_TYPE = \'release\'
+Â  Â  Â  }
+Â  Â  }
+Â  }'''
             }
           }
 
           stage('Compile') {
             steps {
-              sh ''' steps {
-    // Compile the app and its dependencies
-    sh \'./gradlew compile${BUILD_TYPE}Sources\'
-  }
+              sh '''Â steps {
+Â  Â  // Compile the app and its dependencies
+Â  Â  sh \'./gradlew compile${BUILD_TYPE}Sources\'
+Â  }
 '''
               }
             }
@@ -30,26 +30,29 @@ pipeline {
             stage('Build') {
               steps {
                 sh '''steps {
-    // Compile the app and its dependencies
-    sh \'./gradlew assemble${BUILD_TYPE}\'
-    sh \'./gradlew generatePomFileForLibraryPublication\'
-  }'''
+Â  Â  // Compile the app and its dependencies
+Â  Â  sh \'./gradlew assemble${BUILD_TYPE}\'
+Â  Â  sh \'./gradlew generatePomFileForLibraryPublication\'
+Â  }'''
                 }
               }
 
               stage('Publish') {
                 steps {
-                  sh ''' steps {
-    // Archive the APKs so that they can be downloaded from Jenkins
-    archiveArtifacts "**/${APP_NAME}-${BUILD_TYPE}.apk"
-    // Archive the ARR and POM so that they can be downloaded from Jenkins
-    // archiveArtifacts "**/${APP_NAME}-${BUILD_TYPE}.aar, **/*pom-   default.xml*"
-  }'''
+                  sh '''Â steps {
+Â  Â  // Archive the APKs so that they can be downloaded from Jenkins
+Â  Â  archiveArtifacts "**/${APP_NAME}-${BUILD_TYPE}.apk"
+Â  Â  // Archive the ARR and POM so that they can be downloaded from Jenkins
+Â  Â  // archiveArtifacts "**/${APP_NAME}-${BUILD_TYPE}.aar, **/*pom- Â  default.xml*"
+Â  }'''
                   }
                 }
 
               }
             }
 
+          }
+          environment {
+            APP_NAME = '\'test\''
           }
         }
