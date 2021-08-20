@@ -3,7 +3,7 @@ pipeline{
   agent any
 
   environment{
-    APP_NAME='HappySadApp'
+    APP_NAME='app'
   }
   
   options{
