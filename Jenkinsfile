@@ -7,7 +7,8 @@ pipeline{
   }
   
   options{
-    //StopthebuildearlyincaseofcompileortestfailuresskipStagesAfterUnstable()
+    //Stopthebuildearlyincaseofcompileortestfailures
+    skipStagesAfterUnstable()
   }
   
   stages{
@@ -27,17 +28,21 @@ pipeline{
     
     stage('Compile'){
       steps{
-        //Compiletheappanditsdependenciessh'./gradlew compile${BUILD_TYPE}Sources'
+        //Compiletheappanditsdependencies
+        sh'./gradlew compile${BUILD_TYPE}Sources'
       }
     }
     stage('Build'){
       steps{
-        //Compiletheappanditsdependenciessh'./gradlew assemble${BUILD_TYPE}'sh'./gradlew generatePomFileForLibraryPublication'
+        //Compiletheappanditsdependencies
+        sh'./gradlew assemble${BUILD_TYPE}'sh'./gradlew generatePomFileForLibraryPublication'
       }
     }
     stage('Publish'){
       steps{
-        //ArchivetheAPKssothattheycanbedownloadedfromJenkinsarchiveArtifacts"**/${APP_NAME}-${BUILD_TYPE}.apk"//ArchivetheARRandPOMsothattheycanbedownloadedfromJenkins//archiveArtifacts"**/${APP_NAME}-${BUILD_TYPE}.aar, **/*pom-   default.xml*"
+        //ArchivetheAPKssothattheycanbedownloadedfromJenkins
+        archiveArtifacts"**/${APP_NAME}-${BUILD_TYPE}.apk"
+        //ArchivetheARRandPOMsothattheycanbedownloadedfromJenkins//archiveArtifacts"**/${APP_NAME}-${BUILD_TYPE}.aar, **/*pom-   default.xml*"
       }
     }
   }
