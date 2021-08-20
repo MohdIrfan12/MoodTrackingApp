@@ -88,5 +88,5 @@ dependencies {
 firebaseAppDistribution {
   releaseNotes = "Test Notes"
   serviceCredentialsFile = "$rootDir/seasonal-android-firebase.json"
-  groups = ”first_group”
+  groups = "first_group"
  }
