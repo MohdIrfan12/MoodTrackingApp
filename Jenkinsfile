@@ -20,7 +20,7 @@ pipeline{
             env.BUILD_TYPE='debug'
           }
           if(env.BRANCH_NAME=='master'||env.CHANGE_TARGET=='master'){
-            env.BUILD_TYPE='release-unsigned'
+            env.BUILD_TYPE='release'
           }
         }
       }
@@ -42,7 +42,7 @@ pipeline{
     stage('Publish'){
       steps{
         //ArchivetheAPKssothattheycanbedownloadedfromJenkins
-        archiveArtifacts"**/${APP_NAME}-${BUILD_TYPE}.apk"
+        archiveArtifacts"**/${APP_NAME}-${BUILD_TYPE}-unsigned.apk"
         //ArchivetheARRandPOMsothattheycanbedownloadedfromJenkins//archiveArtifacts"**/${APP_NAME}-${BUILD_TYPE}.aar, **/*pom-   default.xml*"
       }
     }
