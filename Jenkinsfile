@@ -2,7 +2,7 @@ pipeline{
   
   agent any
 
-  agentanyenvironment{
+  environment{
     APP_NAME='test'
   }
   
