@@ -20,7 +20,7 @@ pipeline{
             env.BUILD_TYPE='debug'
           }
           if(env.BRANCH_NAME=='master'||env.CHANGE_TARGET=='master'){
-            env.BUILD_TYPE='release'
+            env.BUILD_TYPE='release-unsigned'
           }
         }
       }
