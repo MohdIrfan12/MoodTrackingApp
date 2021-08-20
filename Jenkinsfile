@@ -35,7 +35,8 @@ pipeline{
     stage('Build'){
       steps{
         //Compiletheappanditsdependencies
-        sh'./gradlew assemble${BUILD_TYPE}'sh'./gradlew generatePomFileForLibraryPublication'
+        sh'./gradlew assemble${BUILD_TYPE}'
+        sh'./gradlew generatePomFileForLibraryPublication'
       }
     }
     stage('Publish'){
