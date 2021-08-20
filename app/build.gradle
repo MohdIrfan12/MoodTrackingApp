@@ -84,3 +84,9 @@ dependencies {
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
 
 }
+
+firebaseAppDistribution {
+  releaseNotes = "Test Notes"
+  serviceCredentialsFile = "$rootDir/seasonal-android-firebase.json"
+  groups=”first_group”
+ }
